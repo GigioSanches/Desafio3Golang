@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package order;
+option go_package = "github.com/GigioSanches/Desafio3Golang/internal/infra/grpc/proto;orderpb";
+
+service OrderService {
+  rpc ListOrders (ListOrdersRequest) returns (ListOrdersResponse) {}
+}
+
+message ListOrdersRequest {}
+
+message Order {
+  string id = 1;
+  string description = 2;
+  double price = 3;
+  string created_at = 4;
+}
+
+message ListOrdersResponse {
+  repeated Order orders = 1;
+}
